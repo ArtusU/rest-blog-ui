@@ -1,24 +1,23 @@
-import React from 'react'
-import {NavLink} from 'react-router-dom'
-
-
-import {
-  Container,
-  Menu,
-} from 'semantic-ui-react'
+import React from "react";
+import { NavLink } from "react-router-dom";
+import { Container, Menu } from "semantic-ui-react";
 
 const Navbar = () => (
   <div>
-    <Menu fixed='top' inverted>
+    <Menu fixed="top" inverted>
       <Container>
-        <Menu.Item as='a' header>
-          Blog React
+        <Menu.Item as="a" header>
+          React Markdown Blog
         </Menu.Item>
-        <NavLink to='/'><Menu.Item as='li'>Posts</Menu.Item></NavLink>
-        <NavLink to='/create'><Menu.Item as='li'>Create Post</Menu.Item></NavLink>
+        <NavLink to="/">
+          <Menu.Item as="li">Posts</Menu.Item>
+        </NavLink>
+        <NavLink to="/create">
+          <Menu.Item as="li">Create a post</Menu.Item>
+        </NavLink>
       </Container>
-    </Menu>  
+    </Menu>
   </div>
-)
+);
 
-export default Navbar
+export default Navbar;
