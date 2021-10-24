@@ -10,6 +10,7 @@ import PostUpdate from "./containers/PostUpdate";
 import PostDelete from "./containers/PostDelete";
 
 import Login from "./containers/Login";
+import Signup from "./containers/Signup";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
           <Route path="/posts/:postSlug/update" component={PostUpdate} />
           <Route path="/posts/:postSlug/delete" component={PostDelete} />
           <Route path="/login" component={Login} />
+          <Route path='/signup' component={Signup} />
         </Switch>
       </Layout>
     </Router>
