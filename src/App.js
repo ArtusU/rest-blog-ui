@@ -9,6 +9,8 @@ import PostCreate from "./containers/PostCreate";
 import PostUpdate from "./containers/PostUpdate";
 import PostDelete from "./containers/PostDelete";
 
+import Login from "./containers/Login";
+
 function App() {
   return (
     <Router history={history}>
@@ -19,6 +21,7 @@ function App() {
           <Route exact path="/posts/:postSlug" component={PostDetail} />
           <Route path="/posts/:postSlug/update" component={PostUpdate} />
           <Route path="/posts/:postSlug/delete" component={PostDelete} />
+          <Route path="/login" component={Login} />
         </Switch>
       </Layout>
     </Router>

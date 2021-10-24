@@ -4,11 +4,14 @@ const baseURL =
     : "https://domain.com";
 
 export const api = {
+  auth: {
+    login: `${baseURL}/dj-rest-auth/login/`,
+  },
   posts: {
     list: `${baseURL}/api/posts/`,
     retrieve: (slug) => `${baseURL}/api/posts/${slug}/`,
     create: `${baseURL}/api/posts/create/`,
     update: (slug) => `${baseURL}/api/posts/${slug}/update/`,
-    delete: slug => `${baseURL}/api/posts/${slug}/delete/`,
+    delete: (slug) => `${baseURL}/api/posts/${slug}/delete/`,
   },
 };

@@ -5,9 +5,9 @@ import {
   Divider,
   Header,
   Image,
-  Icon,
   Modal,
 } from "semantic-ui-react";
+import ReactMarkdown from "react-markdown";
 import axios from "axios";
 import Loader from "../components/Loader";
 import Message from "../components/Message";
@@ -25,7 +25,7 @@ const DeleteModal = ({ title, postSlug, thumbnail }) => {
       .delete(api.posts.delete(postSlug), {
         headers: {
           "Content-Type": "multipart/form-data",
-          Authorization: "Token 686b3d89c3de1336cd587e67e05c355d78d048e2",
+          Authorization: "686b3d89c3de1336cd587e67e05c355d78d048e2",
         },
       })
       .then((res) => {
@@ -77,6 +77,14 @@ const DeleteModal = ({ title, postSlug, thumbnail }) => {
   );
 };
 
+const Blockquote = (props) => {
+  return <blockquote>{props.value ? props.value : props.children}</blockquote>;
+};
+
+const Renderers = {
+  blockquote: Blockquote,
+};
+
 const PostDetail = () => {
   const { postSlug } = useParams();
   const { data, loading, error } = useFetch(api.posts.retrieve(postSlug));
@@ -90,9 +98,9 @@ const PostDetail = () => {
           <Header as="h1">{data.title}</Header>
           <Header as="h4">
             Last updated:{" "}
-            {`${new Date(data.last_updated).toLocaleDateString()}`}
+            {`${new Date(data.last_update).toLocaleDateString()}`}
           </Header>
-          <p>{data.content}</p>
+          <ReactMarkdown children={data.content} renderers={Renderers} />
           <Divider />
           <DeleteModal
             postSlug={postSlug}
